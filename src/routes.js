@@ -1,5 +1,5 @@
 import responder from 'Components/Responder.js';
-// import userRoute from './../containers/Users/userRoute.js';
+import userRoute from 'Containers/Users/userRoute.js';
 
 
 export default (app) => {
@@ -9,7 +9,7 @@ export default (app) => {
 	});
 
 	// Insert other routes here
-	// userRoute(app);
+	userRoute(app);
 
 	// Catch all route
 	app.all('*', (req, res, next) => {
