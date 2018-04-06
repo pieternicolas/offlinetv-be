@@ -1,16 +1,16 @@
 import 'babel-polyfill';
 import express from 'express';
 
-import { port, database } from './config/';
-import routes from './routes/';
-import { preSetupMiddleware, postSetupMiddleware } from './middlewares/';
+import { port, database } from 'Config';
+import routes from './routes.js';
+import middlewares from './middlewares/';
 
 
 const app = express();
 
-preSetupMiddleware(app);
+middlewares.preSetupMiddleware(app);
 routes(app);
-postSetupMiddleware(app);
+middlewares.postSetupMiddleware(app);
 
 database().then(() => {
 	if (process.env.NODE_ENV != 'test')	{
@@ -18,6 +18,10 @@ database().then(() => {
 			console.log('We are live on ' + port);
 		});
 	};
+})
+.catch(err => {
+	console.log('Database connection error.');
+	console.log(err);
 });
 
 
