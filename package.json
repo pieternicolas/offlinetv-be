@@ -1,0 +1,70 @@
+{
+  "name": "offlinetv-be",
+  "version": "0.0.1",
+  "description": "Offline tv website backend code",
+  "main": "src/index.js",
+  "scripts": {
+    "watch:build": "webpack --mode development --watch",
+    "watch:client": "nodemon ./dist/main.min.js localhost 8080",
+    "start": "npm run build && concurrently --kill-others \"npm run watch:build\" \"npm run watch:client\"",
+    "dev": "npm run build && concurrently --kill-others \"npm run watch:build\" \"npm run watch:client\" \"npm run test\"",
+    "test": "gulp e2e",
+    "build": "npm run clean && webpack --mode production",
+    "serve": "npm run build && node dist/main.min.js",
+    "clean": "rm -rf dist/ && rm .gulp-cache || true"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.1",
+    "express": "^4.16.3",
+    "express-validator": "^4.2.1",
+    "jsonwebtoken": "^8.2.0",
+    "knex": "^0.13.0",
+    "mongodb": "^3.0.4",
+    "mongoose": "^5.0.12",
+    "mongoose-unique-validator": "^2.0.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^3.0.0",
+    "concurrently": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-file-cache": "0.0.1",
+    "gulp-mocha": "^4.3.1",
+    "gulp-nodemon": "^2.2.1",
+    "mocha": "^3.5.3",
+    "nodemon": "^1.17.2",
+    "pump": "^1.0.2",
+    "supertest": "^3.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pieternicolas/offlinetv-be.git"
+  },
+  "keywords": [
+    "node",
+    "backend",
+    "mongo",
+    "express"
+  ],
+  "author": "Nicolas Pieter (nicolaspieter@yahoo.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pieternicolas/offlinetv-be/issues"
+  },
+  "homepage": "https://github.com/pieternicolas/offlinetv-be#readme"
+}
