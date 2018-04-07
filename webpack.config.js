@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
 const DIST_DIR = path.join(__dirname, 'dist');
 const DEV_DIR = path.join(__dirname, 'src');
@@ -37,6 +38,8 @@ module.exports = {
   },
 
   target: 'node',
+
+  externals: [nodeExternals()],
 
   node: {
     fs: 'empty',
