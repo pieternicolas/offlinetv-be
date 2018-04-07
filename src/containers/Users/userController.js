@@ -24,9 +24,7 @@ export const createUser = (data) => {
 					resolve({ status: 200, data: res });
 				};
 			})
-			.catch(err => {
-				reject({ status: 400, data: err });
-			});
+			.catch(err => reject({ status: 400, data: err }));
 		});
 	});
 };
