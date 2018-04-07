@@ -3,7 +3,7 @@ export default (res, next, param) => {
 	const data = param.data;
 
 	switch (status) {
-		case 200:
+		case 200: case 201:
 			res.status(status).json(data);
 			break;
 
