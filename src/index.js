@@ -1,3 +1,4 @@
+require("dotenv").config();
 import 'babel-polyfill';
 import express from 'express';
 
