@@ -6,11 +6,7 @@ const DIST_DIR = path.join(__dirname, 'dist');
 const DEV_DIR = path.join(__dirname, 'src');
 
 module.exports = {
-  context: DEV_DIR,
-
-  entry: [
-    path.join(DEV_DIR, 'index.js')
-  ],
+  entry: './index.js',
 
   output: {
     path: DIST_DIR,
@@ -31,9 +27,10 @@ module.exports = {
 
   resolve: {
     alias: {
-      Components: path.resolve(__dirname, 'src/components/'),
-      Containers: path.resolve(__dirname, 'src/containers/'),
-      Config: path.resolve(__dirname, 'src/config/')
+      Components: path.join(DEV_DIR, 'components/'),
+      Containers: path.join(DEV_DIR, 'containers/'),
+      Config: path.join(DEV_DIR, 'config/'),
+      Middlewares: path.join(DEV_DIR, 'middlewares/')
     }
   },
 

@@ -3,8 +3,8 @@ import 'babel-polyfill';
 import express from 'express';
 
 import { port, database } from 'Config';
-import routes from './routes.js';
-import middlewares from './middlewares/';
+import routes from './src/routes.js';
+import middlewares from 'Middlewares';
 
 
 const app = express();
